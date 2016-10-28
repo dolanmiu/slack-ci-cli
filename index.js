@@ -1,7 +1,7 @@
 const shell = require('shelljs');
 const SlackWebhook = require('slack-webhook');
-const messages = require('./messages.json');
-const proverbs = require('./proverbs.json');
+const messages = require('./messages.js');
+const proverbs = require('./proverbs.js');
 
 const slack_url = process.env.npm_config_slackUrl;
 const errorType = process.env.npm_config_error;
@@ -20,24 +20,32 @@ const commitHash = shell.exec(`git --no-pager show -s --format="%H"`);
 const currentBranch = shell.exec(`git symbolic-ref --short HEAD`);
 
 let colour;
+let slackMessage = '';
 switch (errorType) {
     case "test":
+        slackMessage = messages.getTestFailMessage(humour);
         colour = "warning";
         break;
     case "build":
+        slackMessage = messages.getBuildFailMessage(humour);
+        colour = "danger";
+        break;
+    case "deploy":
+        slackMessage = messages.getDeployFailMessage(humour);
         colour = "danger";
         break;
     case undefined:
+        slackMessage = messages.getSuccessMessage(humour);
         colour = "good";
         break;
     default:
-        colour = "#439FE0"
+        colour = "#439FE0";
 }
 
 const slack = new SlackWebhook(slack_url);
 
 slack.send({
-    text: `[${repoSlug}/${currentBranch}] ${committerMessage}`,
+    text: `[${repoSlug}/${currentBranch}] ${slackMessage}`,
     attachments: [{
         color: colour,
         author_name: committerName,
@@ -58,6 +66,6 @@ slack.send({
                 short: false
             }
         ],
-        footer: "Bitbucket Pipelines"
+        footer: proverbs.getRandomProverb()
     }]
 });
