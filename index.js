@@ -1,6 +1,7 @@
 const shell = require('shelljs');
 const SlackWebhook = require('slack-webhook');
 const messages = require('./messages.json');
+const proverbs = require('./proverbs.json');
 
 const slack_url = process.env.npm_config_slackUrl;
 const errorType = process.env.npm_config_error;
@@ -10,6 +11,11 @@ const isSuccessful = errorType == undefined;
 if (!slack_url) {
     process.exit(9);
 }
+
+const committerName = shell.exec(`git --no-pager show -s --format="%an"`);
+const committerEmail = shell.exec(`git --no-pager show -s --format="%ae"`);
+const committerMessage = shell.exec(`git --no-pager show -s --format="%B"`);
+const commitHash = shell.exec(`git --no-pager show -s --format="%H"`);
 
 let colour;
 switch (errorType) {
@@ -29,10 +35,30 @@ switch (errorType) {
 const slack = new SlackWebhook(slack_url);
 
 slack.send({
-    text: 'some text',
-    attachments: [
-        // optional attachment data 
-    ],
-    username: 'new username',
-    icon_emoji: ':scream_cat:'
+    text: "['"$BITBUCKET_REPO_SLUG"'/'"$BITBUCKET_BRANCH"'] '"$MESSAGE"'", 
+    attachments:[
+        {
+            color:"'"$COLOUR"'" , 
+            author_name: "'"$COMMITTER_NAME"'",
+            title: "Commit Details",
+            fields: [
+                {
+                    title: "Hash",
+                    value: "'"$BITBUCKET_COMMIT"'",
+                    short: false
+                },
+                {
+                    title: "Message",
+                    value: "'"$COMMIT_MESSAGE"'",
+                    short: false
+                },
+                {
+                    title: "Email",
+                    value: "'"$COMMITTER_EMAIL"'",
+                    short: false
+                }
+            ],
+            footer: "Bitbucket Pipelines"
+        }
+    ]
 });
