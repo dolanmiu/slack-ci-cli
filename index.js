@@ -68,6 +68,6 @@ slack.send({
                 short: false
             }
         ],
-        footer: proverbs.getRandomProverb()
+        footer: proverbs.getProverb()
     }]
 });

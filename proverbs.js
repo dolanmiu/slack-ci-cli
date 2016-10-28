@@ -1,5 +1,5 @@
 const proverbs = require('./proverbs.json');
 
-function getRandomProverb() {
+function getProverb() {
     return proverbs[Math.floor(Math.random() * proverbs.length)];
 }
