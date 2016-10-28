@@ -1,0 +1,14 @@
+{
+    "success": [
+        "Successful deploy! :D"
+    ],
+    "fail": {
+        "test": [
+            "Looks like your tests have not passed!"
+        ],
+        "build": [
+            "Build failed :(",
+            "Someone broke something in the build..."
+        ]
+    }
+}

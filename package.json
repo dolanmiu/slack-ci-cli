@@ -1,0 +1,34 @@
+{
+  "name": "slack-ci-cli",
+  "version": "0.0.1",
+  "description": "CLI tool for sending success and failure CI notifications to slack. Name and shame! :P",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolanmiu/slack-ci-cli.git"
+  },
+  "keywords": [
+    "slack",
+    "incoming",
+    "webhook",
+    "continuous",
+    "integration",
+    "bitbucket",
+    "notify"
+  ],
+  "author": "Dolan Miu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dolanmiu/slack-ci-cli/issues"
+  },
+  "homepage": "https://github.com/dolanmiu/slack-ci-cli#readme",
+  "dependencies": {
+    "slack-webhook": "^1.0.0"
+  },
+  "bin": {
+    "slack-success" : "index.js"
+  }
+}
