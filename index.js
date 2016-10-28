@@ -6,7 +6,7 @@ const proverbs = require('./proverbs.js');
 const slack_url = process.env.npm_config_slackUrl;
 const errorType = process.env.npm_config_error;
 const humour = process.env.npm_config_humour;
-const repoSlug = process.env.npm_config_repoSlug;
+// const repoSlug = process.env.npm_config_repoSlug;
 const isSuccessful = errorType == undefined;
 
 if (!slack_url) {
@@ -18,6 +18,8 @@ const committerEmail = shell.exec(`git --no-pager show -s --format="%ae"`);
 const committerMessage = shell.exec(`git --no-pager show -s --format="%B"`);
 const commitHash = shell.exec(`git --no-pager show -s --format="%H"`);
 const currentBranch = shell.exec(`git symbolic-ref --short HEAD`);
+const repoUrl = shell.exec(`git config --get remote.origin.url`);
+const repoSlug = repoUrl.substr(repoUrl.lastIndexOf('/') + 1);
 
 let colour;
 let slackMessage = '';
