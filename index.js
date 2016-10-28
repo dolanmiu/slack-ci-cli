@@ -1,3 +1,4 @@
+const shell = require('shelljs');
 const SlackWebhook = require('slack-webhook');
 const messages = require('./messages.json');
 
