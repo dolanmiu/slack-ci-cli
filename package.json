@@ -31,6 +31,9 @@
     "slack-webhook": "^1.0.0"
   },
   "bin": {
-    "slack-success": "index.js"
+    "slacksuccess": "commands/success.js",
+    "slacktestfail": "commands/testfail.js",
+    "slackbuildfail": "commands/buildfail.js",
+    "slackdeployfail": "commands/deployfail.js"
   }
 }
