@@ -10,6 +10,7 @@ const humour = process.env.npm_config_humour;
 const isSuccessful = errorType == undefined;
 
 if (!slack_url) {
+    console.warn("No slack URL set. Please set this with the --slackUrl option");
     process.exit(9);
 }
 
