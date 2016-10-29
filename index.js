@@ -13,6 +13,8 @@ if (!slack_url) {
     process.exit(9);
 }
 
+const commandReturnValue = shell.echo(`$?`);
+
 const committerName = shell.exec(`git --no-pager show -s --format="%an"`);
 const committerEmail = shell.exec(`git --no-pager show -s --format="%ae"`);
 const committerMessage = shell.exec(`git --no-pager show -s --format="%B"`);
@@ -71,3 +73,5 @@ slack.send({
         footer: proverbs.getProverb()
     }]
 });
+
+process.exit(commandReturnValue);
