@@ -11,19 +11,25 @@ Slack Continuous Integration CLI
 2. Install this plugin with `npm install slack-ci-cli`. Do **not** install this globally, as this plugin scans the current project for a git repo.
 
 You can use this in `package.json` `scripts` or run straight from a command line tool such as `bash`
+
 ```shell
-slacksuccess --slack-url="" 
+slacksuccess --slack-url="YOUR_SLACK_URL_HERE" 
 ```
 
 ```shell
-slackbuildfail --slack-url=""
+slackbuildfail --slack-url="YOUR_SLACK_URL_HERE"
 ```
 
 ```shell
-slacktestfail --slack-url=""
+slacktestfail --slack-url="YOUR_SLACK_URL_HERE"
 ```
 
 ```shell
-slackdeployfail --slack-url=""
+slackdeployfail --slack-url="YOUR_SLACK_URL_HERE"
 ```
+
 # Examples
+It's generally good to store the Slack URL in a configuration variable if possible.
+```shell
+slacksuccess --slack-url=$SLACK_URL
+```
