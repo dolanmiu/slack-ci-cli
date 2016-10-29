@@ -1,31 +1,31 @@
 const messages = require('./messages.json');
 
-function getRandomMessage(array) {
+exports.getRandomMessage = function(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
-function getSuccessMessage(isRandom) {
+exports.getSuccessMessage = function(isRandom) {
     if (!isRandom) {
         return messages.success[0];
     }
     return getRandomMessage(messages.success);
 }
 
-function getTestFailMessage(isRandom) {
+exports.getTestFailMessage = function(isRandom) {
     if (!isRandom) {
         return messages.fail.test[0];
     }
     return getRandomMessage(messages.fail.test);
 }
 
-function getBuildFailMessage(isRandom) {
+exports.getBuildFailMessage = function(isRandom) {
     if (!isRandom) {
         return messages.fail.build[0];
     }
     return getRandomMessage(messages.fail.build);
 }
 
-function getDeployFailMessage(isRandom) {
+exports.getDeployFailMessage = function(isRandom) {
     if (!isRandom) {
         return messages.fail.deploy[0];
     }

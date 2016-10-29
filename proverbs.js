@@ -1,5 +1,7 @@
 const proverbs = require('./proverbs.json');
 
-function getProverb() {
+var exports = module.exports = {};
+
+exports.getProverb = function() {
     return proverbs[Math.floor(Math.random() * proverbs.length)];
 }
