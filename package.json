@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/dolanmiu/slack-ci-cli#readme",
   "dependencies": {
+    "command-line-args": "^3.0.1",
     "shelljs": "^0.7.5",
     "slack-webhook": "^1.0.0"
   },
