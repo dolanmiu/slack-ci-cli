@@ -20,7 +20,7 @@ exports.writeToSlack = function(errorType) {
         process.exit(9);
     }
 
-    const commandReturnValue = shell.exec(`echo $?`);
+    const commandReturnValue = shell.exec(`echo $?`); // Some reason doesn't work
 
     const committerName = shell.exec(`git --no-pager show -s --format="%an"`);
     const committerEmail = shell.exec(`git --no-pager show -s --format="%ae"`);
@@ -85,7 +85,11 @@ exports.writeToSlack = function(errorType) {
         }]
     }).then(function(res) {
         console.log(res);
-        process.exit(commandReturnValue);
+        if (errorType) {
+            process.exit(1);
+        } else {
+            process.exit(0);
+        }
     }).catch(function(err) {
         console.warn(err);
         process.exit(1);

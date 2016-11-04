@@ -1,6 +1,6 @@
 {
   "name": "slack-ci-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for sending success and failure CI notifications to slack. Name and shame! :P",
   "main": "index.js",
   "scripts": {
