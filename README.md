@@ -13,23 +13,37 @@ Slack Continuous Integration CLI
 You can use this in `package.json` `scripts` or run straight from a command line tool such as `bash`
 
 ```shell
-slacksuccess --slack-url="YOUR_SLACK_URL_HERE" 
+slacksuccess --url=[YOUR_SLACK_URL_HERE]
 ```
 
 ```shell
-slackbuildfail --slack-url="YOUR_SLACK_URL_HERE"
+slackbuildfail --url=[YOUR_SLACK_URL_HERE]
 ```
 
 ```shell
-slacktestfail --slack-url="YOUR_SLACK_URL_HERE"
+slacktestfail --url=[YOUR_SLACK_URL_HERE]
 ```
 
 ```shell
-slackdeployfail --slack-url="YOUR_SLACK_URL_HERE"
+slackdeployfail --url=[YOUR_SLACK_URL_HERE]
 ```
+
+```shell
+slacklintfail --url=[YOUR_SLACK_URL_HERE]
+```
+
+You can add the optional `--humour` flag or `-h` to add a bit of flavour to your build messages :)
 
 # Examples
 It's generally good to store the Slack URL in a configuration variable if possible.
 ```shell
-slacksuccess --slack-url=$SLACK_URL
+slacksuccess --url=$SLACK_URL
+```
+
+```shell
+slacklintfail --url=$SLACK_URL --humour
+```
+
+```shell
+slackbuildfail --url=$SLACK_URL -h
 ```

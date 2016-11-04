@@ -9,7 +9,7 @@ var exports = module.exports = {};
 exports.writeToSlack = function(errorType) {
     const optionDefinitions = [
         { name: 'humour', alias: 'h' },
-        { name: 'url', alias: 'u', type: String },
+        { name: 'url', type: String },
     ]
 
     const options = commandLineArgs(optionDefinitions)
