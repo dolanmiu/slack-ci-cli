@@ -8,8 +8,8 @@ var exports = module.exports = {};
 
 exports.writeToSlack = function(errorType) {
     const optionDefinitions = [
-        { name: 'humour', alias: 'h', type: Boolean },
-        { name: 'url', alias: 'u', type: String, defaultOption: true },
+        { name: 'humour', alias: 'h' },
+        { name: 'url', alias: 'u', type: String },
     ]
 
     const options = commandLineArgs(optionDefinitions)
