@@ -28,7 +28,7 @@ exports.writeToSlack = function(errorType) {
     const commitHash = shell.exec(`git --no-pager show -s --format="%H"`);
     const currentBranch = shell.exec(`git symbolic-ref --short HEAD`).trim();
     const repoUrl = shell.exec(`git config --get remote.origin.url`);
-    const repoSlug = repoUrl.substr(repoUrl.lastIndexOf('/') + 1).trim();
+    const repoSlug = repoUrl.substring(repoUrl.lastIndexOf('/') + 1, repoUrl.length - 5).trim();
 
     let colour;
     let slackMessage = '';

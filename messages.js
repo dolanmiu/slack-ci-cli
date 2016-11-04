@@ -2,7 +2,7 @@ const messages = require('./messages.json');
 
 var exports = module.exports = {};
 
-exports.getRandomMessage = function(array) {
+function getRandomMessage(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
