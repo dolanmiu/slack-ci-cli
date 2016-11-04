@@ -33,3 +33,10 @@ exports.getDeployFailMessage = function(isRandom) {
     }
     return getRandomMessage(messages.fail.deploy);
 }
+
+exports.getLintFailMessage = function(isRandom) {
+    if (!isRandom) {
+        return messages.fail.lint[0];
+    }
+    return getRandomMessage(messages.fail.lint);
+}

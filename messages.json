@@ -1,23 +1,42 @@
 {
     "success": [
-        "Successful deploy!",
-        "Successful deploy! :D"
+        "Everything passed!",
+        "Everything passed! :D",
+        "Someones getting laid tonight!! EVERYTHING PASSED!!",
+        "HORRAY! It has all passed!",
+        "Crack open a beer for dat guy who made it ALL PASS!",
+        "We can go home now, all everything has passed!"
     ],
     "fail": {
         "test": [
-            "Looks like your tests have not passed!"
+            "Tests failed.",
+            "Tests failed. :o",
+            "Looks like your tests have not passed!",
+            "TESTS FAILEDDDD",
+            "YOLO SWAG. NO TESTING B4 COMMIT",
+            "YOU SHALL NOT PASS! Tests failed."
         ],
         "build": [
             "Build failed",
             "Build failed :(",
             "Someone broke something in the build...",
-            "Lets build a wall said the mighty Trump. Build failed guys."
+            "Lets build a wall said the mighty Trump. Build failed guys.",
+            "YOU SHALL NOT PASS! Build failed."
         ],
         "deploy": [
             "Deploy failed",
             "Deploy failed :'(",
             "Someone broke something in the deployment process...",
-            "Guys, it isn't deploying!"
+            "Guys, it isn't deploying!",
+            "YOU SHALL NOT PASS! Deployment failed."
+        ],
+        "lint": [
+            "Linting failed",
+            "Linting failed D:",
+            "Someone did not follow correct linting practices!",
+            "Guys, the linting failed!",
+            "Remember to correct your linting errors before you commit! Lint failed.",
+            "YOU SHALL NOT PASS! Linting failed."
         ]
     }
 }

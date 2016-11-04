@@ -45,6 +45,10 @@ exports.writeToSlack = function(errorType) {
             slackMessage = messages.getDeployFailMessage(options.humour);
             colour = "danger";
             break;
+        case "lint":
+            slackMessage = messages.getLintFailMessage(options.humour);
+            colour = "warning";
+            break;
         case undefined:
             slackMessage = messages.getSuccessMessage(options.humour);
             colour = "good";
