@@ -8,7 +8,7 @@ Slack Continuous Integration CLI
 
 # Usage
 1. Get `incoming-webhook` set up on Slack.
-2. Install this plugin with `npm install slack-ci-cli`. Do **not** install this globally, as this plugin scans the current project for a git repo.
+2. Install this plugin with `npm install slack-ci-cli`. You can also install this globally if you wish to use it within a Bitbucket Pipelines or Jenkins build script. It will still work.
 
 You can use this in `package.json` `scripts` or run straight from a command line tool such as `bash`
 
